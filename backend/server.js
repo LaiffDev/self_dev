@@ -13,8 +13,6 @@ app.use(express.json());
 // ];
 
 //connection to mongodb
-const connectionString =
-  "mongodb+srv://laiffdev:lawele93@cluster0.fwmhvl9.mongodb.net/";
 
 app.get("/", (req, res) => {
   res.send("Welcome to the Library API!");
