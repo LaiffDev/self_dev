@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Don't believe everything you think",
+    "author": "Joseph Nguyen",
+    "published": "2022",
+    "cover": "https://m.media-amazon.com/images/I/31HfKhvX-cL._SY445_SX342_.jpg"
+  },
+  {
+    "title": "Can't hurt me",
+    "author": "David Goggins",
+    "published": "2018",
+    "cover": "https://m.media-amazon.com/images/I/710oCZaYYUL._SY425_.jpg"
+  },
+  {
+    "title": "The power of positive thinking",
+    "author": "Norman Vincent Peale",
+    "published": "2025",
+    "cover": "https://m.media-amazon.com/images/I/81CRko3o+mL._SY466_.jpg"
+  },
+  {
+    "title": "The art of taking actions",
+    "author": "Gregg Krech",
+    "published": "2014",
+    "cover": "https://m.media-amazon.com/images/I/51OGIYg45BL._SY445_SX342_.jpg"
+  },
+  {
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "published": "2025",
+    "cover": "https://m.media-amazon.com/images/I/81F90H7hnML._SY466_.jpg"
+  },
+  {
+    "title": "Think and grow rich",
+    "author": "Napoleon Hill",
+    "published": "2005",
+    "cover": "https://m.media-amazon.com/images/I/51HqycCxMRL._SY445_SX342_.jpg"
+  }
+]
