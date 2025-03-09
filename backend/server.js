@@ -2,7 +2,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import Book from "./models/books.js";
+import Book from "./backend/models/books.js";
 
 // Configuration for .env
 dotenv.config();
