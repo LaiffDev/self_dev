@@ -1,43 +1,54 @@
+"se-strict";
 import express from "express";
+import dotenv from "dotenv";
+import mongoose from "mongoose";
+import Book from "./models/books.js";
+
+// Configuration for .env
+dotenv.config();
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
-//temporary data
-// let books = [
-//   { id: 1, title: "Atomic Habits", author: "James Clear" },
-//   { id: 2, title: "The Alchemist", author: "Paulo Coelho" },
-//   { id: 3, title: "Cant Hurt Me", author: "David Goggins" },
-// ];
+// Connection to MongoDB
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log("MongoDB connected successfully!");
+  } catch (error) {
+    console.error(`Database Connection Error: ${error.message}`);
+  }
+};
+connectDB();
 
-//connection to mongodb
-
+// API Routes
 app.get("/", (req, res) => {
-  res.send("Welcome to the Library API!");
+  res.send("Welcome to the SelfDev Library!");
 });
 
-//get all books
-app.get("/books", (req, res) => {
-  res.json(books);
+// Get all books from the database
+app.get("/books", async (req, res) => {
+  try {
+    const books = await Book.find(); // Fetch all books from MongoDB
+    res.json(books); // Send the books as a JSON response
+  } catch (error) {
+    console.error("Error fetching books:", error);
+    res.status(500).json({ message: "Server Error" });
+  }
 });
 
-//get a specific book by its id
-app.get("/books/:id", (req, res) => {
-  const book = books.find((b) => b.id === parseInt(req.params.id));
-  if (!book) return res.status(404).json({ message: "Book not found" });
+app.get("/books/:id", async (req, res) => {
+  const book = await Book.findById(req.params.id);
+  if (!book) {
+    res.send("Book not available");
+    return res.status(404).json({ message: "Book not found" });
+  }
   res.json(book);
 });
 
-//add book to collection
-app.post("/books", (req, res) => {
-  const { title, author } = req.body;
-  const newBook = { id: books.length + 1, title, author };
-  books.push(newBook);
-  res.status(201).json(newBook);
-});
-
+// Start the server
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
