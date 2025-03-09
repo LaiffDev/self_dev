@@ -1,1 +1,18 @@
 @import "tailwindcss";
+.slick-prev,
+.slick-next {
+  z-index: 999 !important;
+  width: 50px !important; /* Ensure the button is bigger */
+  height: 50px !important;
+  border-radius: 50% !important; /* Make circular */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 50px !important; /* Make arrows bigger */
+  color: #5352525b !important; /* Ensure visibility */
+  opacity: 1 !important;
+}
